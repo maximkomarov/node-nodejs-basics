@@ -23,7 +23,7 @@ const performCalculations = async () => {
       })
     );
   }
-  Promise.all(workers).then(() => {
+  Promise.allSettled(workers).then(() => {
     console.log(resultArray);
   });
 };
