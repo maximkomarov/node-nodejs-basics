@@ -4,12 +4,11 @@ import { pipeline } from 'stream/promises';
 import path from 'path';
 
 const decompress = async () => {
+  const dir = import.meta.dirname;
   const gunzip = createGunzip();
-  const source = createReadStream(
-    path.resolve('src', 'zip', 'files', 'archive.gz')
-  );
+  const source = createReadStream(path.resolve(dir, 'files', 'archive.gz'));
   const destination = createWriteStream(
-    path.resolve('src', 'zip', 'files', 'fileToCompress.txt')
+    path.resolve(dir, 'files', 'fileToCompress.txt')
   );
 
   try {
